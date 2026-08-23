@@ -11,3 +11,6 @@ stripe:
   enabled: true
   timeout: 5000
   currency: USD,CZK
+
+payment:
+  provider: paypal
