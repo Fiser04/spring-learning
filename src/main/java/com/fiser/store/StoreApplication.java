@@ -16,6 +16,7 @@ public class StoreApplication {
         var notificationManager = applicationContext.getBean(NotificationManager.class);
         notificationManager.notify("Your order has been placed successfully!");
         orderService.placeOrder();
+        var heavyResource = applicationContext.getBean(HeavyResource.class);
     }
 
 }
