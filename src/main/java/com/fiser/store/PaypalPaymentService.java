@@ -1,5 +1,8 @@
 package com.fiser.store;
 
+import org.springframework.stereotype.Service;
+
+@Service("PayPal")
 public class PaypalPaymentService implements PaymentService {
     @Override
     public void processPayment(double amount) {

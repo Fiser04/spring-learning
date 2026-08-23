@@ -2,6 +2,7 @@ package com.fiser.store;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
 public class StoreApplication {
@@ -10,7 +11,8 @@ public class StoreApplication {
 //        SpringApplication.run(StoreApplication.class, args);
 //    }
     public static void main(String[] args) {
-        var orderService = new OrderService(new PaypalPaymentService());
+        ApplicationContext applicationContext = SpringApplication.run(StoreApplication.class, args);
+        var orderService = applicationContext.getBean(OrderService.class);
         orderService.placeOrder();
     }
 
