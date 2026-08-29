@@ -3,7 +3,6 @@ package com.fiser.store.Models;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -52,6 +51,6 @@ public class User {
         tag.getUsers().add(this);
     }
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private Profile profile;
 }
