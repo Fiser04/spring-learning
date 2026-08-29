@@ -26,5 +26,6 @@ public class Product {
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
-
+    @Column(name = "description", nullable = false, columnDefinition = "TEXT")
+    private String description;
 }
