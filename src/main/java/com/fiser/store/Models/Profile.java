@@ -1,10 +1,7 @@
 package com.fiser.store.Models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 
@@ -14,6 +11,7 @@ import java.time.LocalDate;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Profile {
     @Id
     @Column(name = "id")
@@ -30,4 +28,9 @@ public class Profile {
 
     @Column(nullable = false, name = "loyalty_points")
     private Integer loyaltyPoints;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @MapsId
+    @JoinColumn(name = "id")
+    private User user;
 }

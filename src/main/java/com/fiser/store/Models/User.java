@@ -51,4 +51,7 @@ public class User {
         tags.add(tag);
         tag.getUsers().add(this);
     }
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Profile profile;
 }
