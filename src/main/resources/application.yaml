@@ -9,12 +9,12 @@ spring:
 server:
     port: 8080
 
-stripe:
-  api:
-    url: https://api.stripe.com
-  enabled: true
-  timeout: 5000
-  currency: USD,CZK
-
-payment:
-  provider: paypal
+#stripe:
+#  api:
+#    url: https://api.stripe.com
+#  enabled: true
+#  timeout: 5000
+#  currency: USD,CZK
+#
+#payment:
+#  provider: paypal
