@@ -1,11 +1,12 @@
 package com.fiser.store.Models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
+@Builder
 @Setter
 @Getter
 @Entity
@@ -26,4 +27,12 @@ public class User {
 
     @Column(nullable = false, name = "password")
     private String password;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Address> addresses;
+
+    public void addAddress(Address address) {
+        addresses.add(address);
+        address.setUser(this);
+    }
 }
