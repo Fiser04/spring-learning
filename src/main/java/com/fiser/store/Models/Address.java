@@ -2,6 +2,7 @@ package com.fiser.store.Models;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.boot.context.properties.bind.DefaultValue;
 
 @Builder
 @Entity
@@ -30,7 +31,7 @@ public class Address {
     private String zipcode;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id")
     @ToString.Exclude
     private User user;
 }
