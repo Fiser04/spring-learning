@@ -15,6 +15,7 @@ public class StoreApplication {
         var app = SpringApplication.run(StoreApplication.class, args);
         var userService = app.getBean("userService", com.fiser.store.Services.UserService.class);
 //        userService.tryUserService();
-        userService.showRelatedEntities();
+//        userService.showRelatedEntities();
+        userService.persistRelated();
     }
 }

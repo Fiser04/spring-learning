@@ -3,6 +3,7 @@ package com.fiser.store.Models;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -45,4 +46,14 @@ public class User {
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private Profile profile;
+
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST, orphanRemoval = true)
+    @Builder.Default
+    private List<Address> addressList = new ArrayList<>();
+
+    public void addAddress(Address address) {
+        addressList.add(address);
+        address.setUser(this);
+    }
 }

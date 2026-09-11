@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.boot.context.properties.bind.DefaultValue;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Builder
 @Entity
 @Table(name = "address")
@@ -34,4 +37,6 @@ public class Address {
     @JoinColumn(name = "user_id")
     @ToString.Exclude
     private User user;
+
+
 }
