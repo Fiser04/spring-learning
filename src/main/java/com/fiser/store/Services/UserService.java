@@ -52,4 +52,9 @@ public class UserService {
         user.addAddress(address);
         userRepository.save(user);
     }
+
+    public void deleteUser(Long userId) {
+        var user = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("User not found"));
+        userRepository.delete(user);
+    }
 }

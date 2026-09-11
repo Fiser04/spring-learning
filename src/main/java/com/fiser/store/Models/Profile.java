@@ -20,13 +20,13 @@ public class Profile {
     @Column(nullable = false, name = "bio")
     private String bio;
 
-    @Column(nullable = false, name = "phone_number")
+    @Column(name = "phone_number")
     private String phoneNumber;
 
-    @Column(nullable = false, name = "date_of_birth")
+    @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
 
-    @Column(nullable = false, name = "loyalty_points")
+    @Column(name = "loyalty_points")
     private Integer loyaltyPoints;
 
     @OneToOne(fetch = FetchType.LAZY)

@@ -16,6 +16,7 @@ public class StoreApplication {
         var userService = app.getBean("userService", com.fiser.store.Services.UserService.class);
 //        userService.tryUserService();
 //        userService.showRelatedEntities();
-        userService.persistRelated();
+//   ALL     userService.persistRelated();
+        userService.deleteUser(2L);
     }
 }
