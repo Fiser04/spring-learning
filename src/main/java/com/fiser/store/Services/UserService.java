@@ -1,6 +1,7 @@
 package com.fiser.store.Services;
 
 import com.fiser.store.Models.User;
+import com.fiser.store.Repositories.AddressRepository;
 import com.fiser.store.Repositories.ProfileRepository;
 import com.fiser.store.Repositories.UserRepository;
 import jakarta.persistence.EntityManager;
@@ -12,8 +13,8 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class UserService {
     private final UserRepository userRepository;
-    private final EntityManager entityManager;
     private final ProfileRepository profileRepository;
+    private final AddressRepository addressRepository;
 
     @Transactional
     public void tryUserService() {
@@ -22,22 +23,13 @@ public class UserService {
                 .email("jane.doe@example.com")
                 .password("12345")
                 .build();
-        if(entityManager.contains(user)){
-            System.out.println("Persistent context contains user");
-        } else {
-            System.out.println("Transient/Detached context contains user");
-        }
-            userRepository.save(user);
-        if(entityManager.contains(user)){
-            System.out.println("Persistent context contains user");
-        } else {
-            System.out.println("Transient/Detached context contains user");
-        }
+        userRepository.save(user);
     }
 
     @Transactional
     public void showRelatedEntities() {
-        var profile = profileRepository.findById(2L).orElseThrow(() -> new RuntimeException("Profile not found"));
-        System.out.println("Profile: " + profile.getUser().getName());
+        var address = addressRepository.findById(1L).orElseThrow(() -> new RuntimeException("Address not found"));
+        System.out.println("Address: " + address.getStreet());
+        System.out.println("User: " + address.getUser().getName());
     }
 }

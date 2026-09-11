@@ -28,14 +28,6 @@ public class User {
     @Column(nullable = false, name = "password")
     private String password;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Address> addresses;
-
-    public void addAddress(Address address) {
-        addresses.add(address);
-        address.setUser(this);
-    }
-
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "user_tags",

@@ -7,7 +7,8 @@ spring:
     password: password
   jpa:
     show-sql: true
-
+  flyway:
+    clean-disabled: true
 server:
     port: 8080
 
