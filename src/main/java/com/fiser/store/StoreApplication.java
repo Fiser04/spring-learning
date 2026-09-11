@@ -13,16 +13,7 @@ public class StoreApplication {
 
     public static void main(String[] args) {
         var app = SpringApplication.run(StoreApplication.class, args);
-//       var user = User.builder()
-//                .name("John Doe")
-//                .email("john.doe@example.com")
-//                .password("123456")
-//                .build();
-        var userRepository = app.getBean("userRepository", com.fiser.store.Repositories.UserRepository.class);
-//        var user = userRepository.findById(1L).orElseThrow();
-//        System.out.println("User: " + user.getName() + ", Email: " + user.getEmail());
-//        var users = userRepository.findAll();
-//        users.forEach(user -> System.out.println("User: " + user.getName() + ", Email: " + user.getEmail()));
-        userRepository.deleteById(1L);
+        var userService = app.getBean("userService", com.fiser.store.Services.UserService.class);
+        userService.tryUserService();
     }
 }
